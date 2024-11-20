@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+
 public class TokenDaoImpl implements TokenDao {
 
     private final Logger logger = Logger.getLogger(this.getClass().getName());
@@ -79,7 +80,7 @@ public class TokenDaoImpl implements TokenDao {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            logger.warning("não foi possível atualizar o Token");
+            logger.warning("não foi possível atualizar o registro");
         }
     }
 
