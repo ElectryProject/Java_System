@@ -115,7 +115,7 @@ public class UsuarioController {
             usuarioService.createUsuario(usuario);
             return Response.status(Response.Status.CREATED).entity(usuario).build();
         } catch (UsuarioNotAutorizedException | UsuarioInvalidException | SenhaInvalidException e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(Map.of("mensagem", "Dados inválidos")).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(Map.of("mensagem", "Dados inválidos: " + e.getMessage())).build();
         } catch (ExceptionNotCreated | SQLException e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Map.of("mensagem", "não foi possível salvar o registro")).build();
         }

@@ -65,7 +65,7 @@ public class FeedbackController {
         } catch (SQLException | ExceptionNotCreated e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Map.of("mensagem", "não foi possível salvar o registro")).build();
         } catch (FeedbackInvalidException e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(Map.of("mensagem", "Dados inválidos" + e.getMessage())).build();
         }
     }
 
